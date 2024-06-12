@@ -1,0 +1,57 @@
+/* src/components/NotaList.css */
+.nota-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.nota-card {
+    position: relative; /* Para permitir el posicionamiento absoluto del botón */
+    background-color: #ffffff; /* Cambia esto según el color que necesites */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    width: calc(33.333% - 40px); /* Ajusta según el número de columnas */
+}
+
+.nota-card:hover {
+    transform: translateY(-5px);
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 10px; /* Ajusta según sea necesario */
+    right: 10px; /* Ajusta según sea necesario */
+    background-color: #007bff; /* Color del botón, puedes cambiarlo */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+    background-color: #0056b3; /* Color del botón al hacer hover, puedes cambiarlo */
+}
+
+.nota-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.nota-content {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Colores personalizados para cada tarjeta, puedes agregar más según tus necesidades */
+.nota-card:nth-child(1) { background-color: #FEE715FF; }
+.nota-card:nth-child(2) { background-color: #F56565; }
+.nota-card:nth-child(3) { background-color: #48BB78; }
+.nota-card:nth-child(4) { background-color: #4299E1; }
+/* Continúa para las demás tarjetas */
