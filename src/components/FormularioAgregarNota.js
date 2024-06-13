@@ -1,5 +1,5 @@
-// src/components/FormularioAgregarNota.js
 import React, { useState } from 'react';
+import "../styles/FormularioAgregarNota.css";
 
 const FormularioAgregarNota = ({ onAgregarNota }) => {
     const [title, setTitle] = useState('');
@@ -14,19 +14,21 @@ const FormularioAgregarNota = ({ onAgregarNota }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="formulario">
             <input
                 type="text"
                 placeholder="Título"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                className="formulario-input"
             />
             <textarea
                 placeholder="Contenido"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
+                className="formulario-textarea"
             ></textarea>
-            <button type="submit">
+            <button type="submit" className="formulario-boton">
                 Agregar Nota
             </button>
         </form>
