@@ -1,5 +1,13 @@
 /* src/styles/NotaDetail.css */
 
+/* Importar la fuente Roboto desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Resto de los estilos */
 .modal {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -10,20 +18,48 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+    overflow-y: hidden; /* Quitar desplazamiento */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-content {
-    background-color: #2c2c2c;
-    padding: 16px;
+    background-color: #1e1e1e;
+    padding: 20px;
     border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-in-out;
+    overflow: visible; /* Quitar desplazamiento dentro del contenido del modal */
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .close {
-    color: #ffffff;
-    float: right;
-    font-size: 28px;
+    color: #e0e0e0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -32,31 +68,51 @@
     color: #aaaaaa;
 }
 
-.modal-content h2 {
-    color: #ffffff;
-    margin-top: 0;
-}
-
-.modal-content input,
-.modal-content textarea {
-    background-color: #484848;
+.modal-input, .modal-textarea {
+    background-color: #2c2c2c;
     border: none;
-    color: #e0e0e0;
     border-radius: 4px;
-    padding: 8px;
+    padding: 10px;
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #e0e0e0;
+    resize: none; /* Deshabilitar redimensionado en el textarea */
+    font-family: 'Roboto', sans-serif; /* Aplicar fuente Roboto */
 }
 
-.modal-content button {
+.modal-textarea {
+    height: 200px; /* Altura fija para el textarea */
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn {
     background-color: #4caf50;
     color: #ffffff;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.modal-content button:hover {
+.btn:hover {
     background-color: #45a049;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    color: #aaaaaa;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
 }

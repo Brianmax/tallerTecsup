@@ -1,10 +1,15 @@
 // src/components/NotaDetail.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/NotaDetail.css';
 
 const NotaDetail = ({ nota, onActualizarNota, onVolver }) => {
     const [titulo, setTitulo] = useState(nota.title);
     const [contenido, setContenido] = useState(nota.content);
+
+    useEffect(() => {
+        setTitulo(nota.title);
+        setContenido(nota.content);
+    }, [nota]);
 
     const handleGuardar = () => {
         const notaActualizada = { ...nota, title: titulo, content: contenido };
@@ -15,17 +20,26 @@ const NotaDetail = ({ nota, onActualizarNota, onVolver }) => {
         <div className="modal">
             <div className="modal-content">
                 <span className="close" onClick={onVolver}>&times;</span>
-                <h2>Editar Nota</h2>
                 <input
+                    className="modal-input"
                     type="text"
                     value={titulo}
                     onChange={(e) => setTitulo(e.target.value)}
+                    placeholder="Título"
                 />
                 <textarea
+                    className="modal-textarea"
                     value={contenido}
                     onChange={(e) => setContenido(e.target.value)}
+                    placeholder="Contenido"
                 />
-                <button onClick={handleGuardar}>Guardar</button>
+                <div className="modal-footer">
+                    <span>Modificada: {new Date().toLocaleDateString()}</span>
+                    <div className="modal-actions">
+                        <button className="btn" onClick={handleGuardar}>Guardar</button>
+                        <button className="btn" onClick={onVolver}>Cancelar</button>
+                    </div>
+                </div>
             </div>
         </div>
     );

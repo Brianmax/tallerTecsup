@@ -1,8 +1,7 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
+import FormularioAgregarNota from './components/FormularioAgregarNota';
 import NotaList from './components/NotaList';
 import NotaDetail from './components/NotaDetail';
-import FormularioAgregarNota from './components/FormularioAgregarNota';
 import './App.css';
 
 const App = () => {
@@ -53,6 +52,8 @@ const App = () => {
     };
 
     const handleActualizarNota = async (notaActualizada) => {
+        console.log("Esta es la nota a actualizar")
+        console.log(notaActualizada)
         try {
             const response = await fetch(`http://localhost:8080/api/v1/notes/update/${notaActualizada.id}`, {
                 method: 'PUT',
@@ -76,7 +77,7 @@ const App = () => {
         setNotaSeleccionada(null);
         setShowModal(false);
     };
-
+    console.log(notaSeleccionada)
     return (
         <div className="app-container">
             <FormularioAgregarNota onAgregarNota={handleAgregarNota} />
