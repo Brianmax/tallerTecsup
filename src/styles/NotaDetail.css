@@ -39,7 +39,7 @@ body {
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: slideIn 0.3s ease-in-out;
-    overflow: visible; /* Quitar desplazamiento dentro del contenido del modal */
+    overflow: visible;
     position: relative;
 }
 
@@ -77,12 +77,12 @@ body {
     margin-bottom: 10px;
     font-size: 16px;
     color: #e0e0e0;
-    resize: none; /* Deshabilitar redimensionado en el textarea */
-    font-family: 'Roboto', sans-serif; /* Aplicar fuente Roboto */
+    resize: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .modal-textarea {
-    height: 200px; /* Altura fija para el textarea */
+    height: 200px;
 }
 
 .modal-actions {

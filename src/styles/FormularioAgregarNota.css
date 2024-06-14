@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .formulario {
     display: flex;
     flex-direction: column;
@@ -6,6 +8,7 @@
     border-radius: 8px;
     width: 300px;
     margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 .formulario-input,
@@ -16,11 +19,13 @@
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .formulario-input::placeholder,
 .formulario-textarea::placeholder {
     color: #bbb;
+    font-family: 'Roboto', sans-serif;
 }
 
 .formulario-boton {
@@ -30,8 +35,13 @@
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .formulario-boton:hover {
     background-color: #0056b3;
+}
+.formulario-textarea {
+    min-height: 50px;
+    resize: none;
 }

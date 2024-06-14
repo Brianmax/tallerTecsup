@@ -1,4 +1,3 @@
-// src/components/NotaDetail.js
 import React, { useState, useEffect } from 'react';
 import '../styles/NotaDetail.css';
 
@@ -34,7 +33,9 @@ const NotaDetail = ({ nota, onActualizarNota, onVolver }) => {
                     placeholder="Contenido"
                 />
                 <div className="modal-footer">
-                    <span>Modificada: {new Date().toLocaleDateString()}</span>
+                    {nota.dateModified && (
+                        <span>Modificada: {new Date(nota.dateModified).toLocaleDateString()}</span>
+                    )}
                     <div className="modal-actions">
                         <button className="btn" onClick={handleGuardar}>Guardar</button>
                         <button className="btn" onClick={onVolver}>Cancelar</button>

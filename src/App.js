@@ -12,7 +12,7 @@ const App = () => {
     useEffect(() => {
         const cargarNotas = async () => {
             try {
-                const response = await fetch('http://localhost:8080/api/v1/notes/findAll');
+                const response = await fetch('http://localhost:8080/api/v1/notes/find/all');
                 if (!response.ok) {
                     throw new Error('Error al cargar las notas');
                 }
@@ -52,8 +52,6 @@ const App = () => {
     };
 
     const handleActualizarNota = async (notaActualizada) => {
-        console.log("Esta es la nota a actualizar")
-        console.log(notaActualizada)
         try {
             const response = await fetch(`http://localhost:8080/api/v1/notes/update/${notaActualizada.id}`, {
                 method: 'PUT',
@@ -77,11 +75,13 @@ const App = () => {
         setNotaSeleccionada(null);
         setShowModal(false);
     };
-    console.log(notaSeleccionada)
+
     return (
         <div className="app-container">
             <FormularioAgregarNota onAgregarNota={handleAgregarNota} />
-            <NotaList notas={notas} onNotaSeleccionada={handleNotaSeleccionada} />
+            {notas.length > 0 && (
+                <NotaList notas={notas} onNotaSeleccionada={handleNotaSeleccionada} />
+            )}
             {showModal && (
                 <NotaDetail
                     nota={notaSeleccionada}
